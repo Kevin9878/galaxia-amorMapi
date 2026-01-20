@@ -1,0 +1,106 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+<meta charset="UTF-8">
+<title>Nuestra Galaxia 💫</title>
+<style>
+html,body{
+  margin:0;
+  padding:0;
+  height:100%;
+  overflow:hidden;
+  font-family:'Arial',sans-serif;
+  background:black;
+  color:white;
+}
+.galaxy{
+  position:fixed;
+  width:200%;
+  height:200%;
+  background:
+    radial-gradient(circle at center, #ffffff33, #000 70%),
+    url("https://i.imgur.com/8KZ9QYB.jpg");
+  animation:spin 60s linear infinite;
+}
+@keyframes spin{
+  from{transform:rotate(0deg);}
+  to{transform:rotate(360deg);}
+}
+.orbit{
+  position:absolute;
+  top:50%;
+  left:50%;
+  width:500px;
+  height:500px;
+  margin:-250px;
+  animation:spin 25s linear infinite reverse;
+}
+.orbit img{
+  width:90px;
+  height:90px;
+  border-radius:15px;
+  position:absolute;
+}
+.orbit img:nth-child(1){top:0;left:200px;}
+.orbit img:nth-child(2){top:200px;right:0;}
+.orbit img:nth-child(3){bottom:0;left:200px;}
+.orbit img:nth-child(4){top:200px;left:0;}
+.orbit img:nth-child(5){top:50px;left:50px;}
+.orbit img:nth-child(6){bottom:50px;right:50px;}
+
+.text{
+  position:absolute;
+  bottom:8%;
+  width:100%;
+  text-align:center;
+  font-size:22px;
+  animation:fade 10s infinite;
+}
+@keyframes fade{
+  0%{opacity:0;}
+  20%{opacity:1;}
+  80%{opacity:1;}
+  100%{opacity:0;}
+}
+audio{display:none;}
+</style>
+</head>
+<body>
+
+<div class="galaxy"></div>
+
+<div class="orbit">
+  <img src="foto1.jpg">
+  <img src="foto2.jpg">
+  <img src="foto3.jpg">
+  <img src="foto4.jpg">
+  <img src="foto5.jpg">
+  <img src="foto6.jpg">
+</div>
+
+<div class="text" id="texto"></div>
+
+<audio autoplay loop>
+  <source src="https://files.catbox.moe/0v6c9q.mp3" type="audio/mpeg">
+</audio>
+
+<script>
+const textos=[
+"Te amo mucho Ositaaaaalimdaaaa 💘🧸",
+"Mi Mapi hermosa 😻",
+"Siempre estaré a tu lado",
+"Gracias por estar conmigo amor 🤍",
+"Tiamuuuuuuuuumuuuuchoooo 🐄💕💕"
+];
+let i=0;
+const t=document.getElementById("texto");
+function cambiar(){
+  t.innerText=textos[i];
+  i=(i+1)%textos.length;
+}
+cambiar();
+setInterval(cambiar,4000);
+</script>
+
+</body>
+</html>
